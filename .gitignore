@@ -1,0 +1,35 @@
+# Visual Studio tijdelijke mappen
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+
+# Gebruikersspecifieke instellingen
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Gecompileerde bestanden
+*.obj
+*.lib
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.exp
+
+# VC++ IntelliSense & Database
+*.ncb
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# SFML specifieke zaken (als je de DLL's handmatig kopieert)
+# Let op: als je DLL's nodig hebt om het spel te draaien, 
+# kun je ze beter via een script of handmatig toevoegen, 
+# maar vaak wil je ze niet in Git.
+*.dll
