@@ -1,4 +1,4 @@
-#pragma once
+
 #include "game.hpp"
 
 Game::Game() {
@@ -8,6 +8,10 @@ Game::Game() {
 bool Game::makeMove(int row, int col) {
 	if (isGameOver()) {
 	return false;
+	}
+
+	if (row < 0 || row > 2 || col < 0 || col > 2) {
+		return false;
 	}
 
 	if (getCell(row, col) != Player::None) {

@@ -1,24 +1,21 @@
-#pragma	once
+
 #include "textInterface.hpp"
 #include <iostream>
 #include <stdexcept>
 
 
-textInterface::textInterface(Game& game) : game_(game) {
-
-}
 // Print het bord in het console, Met strepen tussen de cellen.
 void textInterface::render() {
 	for (int i = 0; i < 3; ++i) {
 		for (int j = 0; j < 3; ++j){ 
 
 			if (game_.getCell(i, j) == Player::X) {
-				std::cout << "X";
+				std::cout << "X ";
 			}
 			else if (game_.getCell(i, j) == Player::O) {
-				std::cout << "O";
+				std::cout << "O ";
 			}else if(game_.getCell(i, j) == Player::None){
-				std::cout << "_";
+				std::cout << "_ ";
 			}
 			else {
 				throw std::runtime_error("Invalid player value");
@@ -28,7 +25,9 @@ void textInterface::render() {
 		std::cout << std::endl;
 		if (i < 2) {std::cout << "---------\n";}
 	}
+	std::cout << std::endl;
 }
+
 void textInterface::showWinner() {
 	if (game_.isGameOver()) {
 		if (game_.getWinner() == Player::X) {

@@ -19,13 +19,31 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{1fc2c36f-52eb-4f24-95fc-9609537468c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{f1a9fb33-3e96-42d1-8083-8fb8ae5f12aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{285bd0f5-c31f-46f5-8a94-b9304ce031da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{734e23ce-9b9a-4edd-a041-ea6941262a04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{59820610-3553-40a4-b8de-cd64285ef82f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\model\game.cpp">
       <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\view\textInterface.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\controller\textController.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +52,18 @@
     </ClInclude>
     <ClInclude Include="src\model\move.hpp">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\view\Interface.hpp">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\view\textInterface.hpp">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\controller\headController.hpp">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="src\controller\textController.hpp">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
