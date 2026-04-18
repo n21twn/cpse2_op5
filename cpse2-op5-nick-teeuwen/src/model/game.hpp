@@ -2,7 +2,7 @@
 #include <vector>
 #include "move.hpp"
 
-class Game {
+class Game{
 public:
 	Game();
 
