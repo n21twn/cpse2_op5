@@ -37,6 +37,7 @@ void textController::handleInput() {
 		}
 		if(result == InputResult::Invalid) {
 			interface_.showMessage("Invalid input, only numbers are allowed and 'u'.");
+			continue; // loop opnieuw starten
 		}
 		if(game_.makeMove(row, col)) { break; }// als move gelukt is dan return, anders loop verder en vraag opnieuw om input
 		interface_.showMessage("Invalid move, try again.");

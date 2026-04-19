@@ -65,5 +65,8 @@
     <ClInclude Include="src\controller\textController.hpp">
       <Filter>Header Files\Controller</Filter>
     </ClInclude>
+    <ClInclude Include="src\view\SFMLInterface.hpp">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
