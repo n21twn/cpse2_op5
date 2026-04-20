@@ -5,9 +5,10 @@
 
 class SFMLInterface : public Interface {
 public: 
-	SFMLInterface(Game& game) : game_(game), window_(sf::VideoMode(600, 600), "Tic-Tac-Toe") {
-		font_.loadFromFile("C:/Windows/Fonts/arial.ttf");// gebruik standaard font van windows
-
+	SFMLInterface(Game& game) : game_(game), window_(sf::VideoMode(600, 650), "Tic-Tac-Toe") {
+		if (!font_.loadFromFile("C:/Windows/Fonts/arial.ttf")) {// gebruik standaard font van windows
+			throw std::runtime_error("Failed to load font");
+		}
 	}
 	// public accessor for the window so other modules can use it without accessing private members
 

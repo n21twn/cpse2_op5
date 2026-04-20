@@ -1,5 +1,4 @@
 #pragma once
-#include "../model/game.hpp"
 #include "../model/inputResult.hpp"
 #include <string>
 

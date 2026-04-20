@@ -49,7 +49,7 @@ void SFMLInterface::render() {
 	// Tekst voor berichten onderaan het scherm 
 	sf::Text text(message_, font_, 32);
 	text.setFillColor(sf::Color::White);
-	text.setPosition(10.f, 10.f); // Plaats het bericht in het midden van het venster
+	text.setPosition(10.f, 610.f); // Plaats het bericht in het midden van het venster
 	window_.draw(text);
 	window_.display();
 }

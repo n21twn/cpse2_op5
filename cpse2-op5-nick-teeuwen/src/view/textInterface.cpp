@@ -19,7 +19,6 @@ InputResult textInterface::getPlayerInput(int& row, int& col) {
 	return InputResult::Move;
 }
 
-
 // Print het bord in het console, Met strepen tussen de cellen.
 void textInterface::render() {
 	for (int i = 0; i < 3; ++i) {
