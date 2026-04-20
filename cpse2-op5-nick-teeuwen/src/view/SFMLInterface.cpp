@@ -2,6 +2,7 @@
 #include <iostream>
 
 InputResult SFMLInterface::getPlayerInput(int& row, int& col) {
+	if (!window_.isOpen()) { return InputResult::Invalid; }
 	sf::Event event;
 	while (window_.waitEvent(event)) {
 		if (event.type == sf::Event::Closed) {
@@ -26,6 +27,7 @@ InputResult SFMLInterface::getPlayerInput(int& row, int& col) {
 }
 
 void SFMLInterface::render() {
+	if (!window_.isOpen()) { return; }
 	window_.clear();
 	for (int r = 0; r < 3; ++r) {
 		for (int c = 0; c < 3; ++c) {

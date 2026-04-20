@@ -9,13 +9,22 @@ InputResult textInterface::getPlayerInput(int& row, int& col) {
 	std::cin >> input;
 	if (input == "u") { return InputResult::Undo; }
 	try {
-		row = std::stoi(input); // zet string terug om naar Int
+		row = std::stoi(input);// zet string terug om naar Int
 	}
-	catch (std::invalid_argument&) { // Ai geholpen met functie vinden die invalid argument exception gooit.
-		return InputResult::Invalid; // als er iets anders is ingevoerd dan een getal of 'u' dan is het ongeldig
+	catch (std::invalid_argument&) {// Ai geholpen met functie vinden die invalid argument exception gooit.
+		return InputResult::Invalid;// als er iets anders is ingevoerd dan een getal of 'u' dan is het ongeldig
 	}
+
 	showMessage("Enter your column:");
-	std::cin >> col;
+	std::cin >> input;
+	if (input == "u") { return InputResult::Undo; }
+	try {
+		col = std::stoi(input);
+	}
+	catch (std::invalid_argument&) {
+		return InputResult::Invalid;
+	}
+
 	return InputResult::Move;
 }
 
