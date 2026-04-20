@@ -43,21 +43,24 @@ cpse2-op5-nick-teeuwen/
 ### Vereisten
 
 - Visual Studio 2022
-- SFML 2.5.1 geïnstalleerd (bijv. in `C:\SFML-2.5.1\`)
+- SFML 2.5.1 geïnstalleerd
 
 ### Stappen
 
 1. Open `cpse2-op5-nick-teeuwen.sln` in Visual Studio 2022.
-2. Selecteer de gewenste build-configuratie in de toolbar:
+2. Stel de SFML-paden in voor de `Release_SFML` configuratie via **Project → Properties**:
+   - **C/C++ → General → Additional Include Directories:** pad naar de `include` map van jouw SFML installatie (bijv. `C:\SFML-2.5.1\include`)
+   - **Linker → General → Additional Library Directories:** pad naar de `lib` map van jouw SFML installatie (bijv. `C:\SFML-2.5.1\lib`)
+   - **Linker → Input → Additional Dependencies:** `sfml-graphics.lib;sfml-window.lib;sfml-system.lib`
+3. Selecteer de gewenste build-configuratie in de toolbar:
    - **Release_SFML** → grafische versie met SFML
-   - **Release_Text** → tekstversie zonder SFML
-3. Klik op **Build → Build Solution** (of druk op `Ctrl+Shift+B`).
-4. De uitvoerbare bestanden worden aangemaakt in de `x64/Release_SFML/` of `x64/Release_Text/` map.
+   - **Release_Text** → tekstversie zonder SFML (geen SFML vereist)
+4. Klik op **Build → Build Solution** (of druk op `Ctrl+Shift+B`).
+5. De uitvoerbare bestanden worden aangemaakt in de `x64/Release_SFML/` of `x64/Release_Text/` map.
 
-> **Let op:** Zorg dat de SFML include- en library-paden correct zijn ingesteld in de projectinstellingen voor de `Release_SFML` configuratie:
-> - C/C++ → General → Additional Include Directories: `C:\SFML-2.5.1\include`
-> - Linker → General → Additional Library Directories: `C:\SFML-2.5.1\lib`
-> - Linker → Input → Additional Dependencies: `sfml-graphics.lib;sfml-window.lib;sfml-system.lib`
+> **Let op (SFML versie):** Kopieer de benodigde SFML `.dll` bestanden naar dezelfde map als de `.exe`. De benodigde bestanden zijn:
+> `sfml-graphics-2.dll`, `sfml-window-2.dll`, `sfml-system-2.dll`
+> Deze zijn te vinden in de `bin` map van jouw SFML installatie.
 
 ---
 
@@ -72,13 +75,13 @@ cpse2-op5-nick-teeuwen/
 ### Tekstversie
 
 - **Zet plaatsen:** Voer het rijnummer in (0-2) en druk op Enter, voer daarna het kolomnummer in (0-2) en druk op Enter.
-- **Undo:** Typ `u` bij het invoeren van het rijnummer en druk op Enter.
+- **Undo:** Typ `u` bij het invoeren van het rijnummer **of** het kolomnummer en druk op Enter.
 
 ---
 
 ## Ontwerpkeuzes
 
-- **Command-pattern:** Alle zetten worden opgeslagen in een `std::vector<Move>`. De bordstatus wordt nergens expliciet bijgehouden maar altijd afgeleid door de lijst zetten te doorlopen. Undo werkt door de laatste zet uit de vector te verwijderen.
+- **Command-pattern:** Alle zetten worden opgeslagen in een `std::vector<Move>` (STL container). De bordstatus wordt nergens expliciet bijgehouden maar altijd afgeleid door de lijst zetten te doorlopen. Undo werkt door de laatste zet uit de vector te verwijderen met `pop_back()`.
 - **MVC-pattern:** Het model (`Game`) weet niets van de view. De view-klassen implementeren de abstracte `Interface`-klasse. De controllers implementeren de abstracte `headController`-klasse.
 - **Kleurenblindheid:** In de SFML-versie worden spelers onderscheiden door zowel kleur als vorm (X = rood kruis, O = blauwe cirkel), zodat het spel ook toegankelijk is voor kleurenblinden.
-- **Geen code-duplicatie:** De gemeenschappelijke interface (`Interface`) en controller (`headController`) voorkomen duplicatie tussen de twee versies.
+- **Geen code-duplicatie:** De gemeenschappelijke interface (`Interface`) en controller (`headController`) voorkomen duplicatie tussen de twee versies. De keuze tussen SFML en tekstversie wordt bepaald via een `#ifdef USE_SFML` preprocessor define in `main.cpp`.
