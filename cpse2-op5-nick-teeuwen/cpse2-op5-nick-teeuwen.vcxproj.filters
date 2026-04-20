@@ -45,6 +45,12 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\view\SFMLInterface.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\controller\SFMLController.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\model\game.hpp">
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="src\view\SFMLInterface.hpp">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\controller\SFMLController.hpp">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model\inputResult.hpp">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

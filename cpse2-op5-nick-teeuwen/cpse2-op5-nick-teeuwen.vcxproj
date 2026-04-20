@@ -126,15 +126,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\controller\SFMLController.cpp" />
     <ClCompile Include="src\controller\textController.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\model\game.cpp" />
+    <ClCompile Include="src\view\SFMLInterface.cpp" />
     <ClCompile Include="src\view\textInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\controller\headController.hpp" />
+    <ClInclude Include="src\controller\SFMLController.hpp" />
     <ClInclude Include="src\controller\textController.hpp" />
     <ClInclude Include="src\model\game.hpp" />
+    <ClInclude Include="src\model\inputResult.hpp" />
     <ClInclude Include="src\model\move.hpp" />
     <ClInclude Include="src\view\Interface.hpp" />
     <ClInclude Include="src\view\SFMLInterface.hpp" />

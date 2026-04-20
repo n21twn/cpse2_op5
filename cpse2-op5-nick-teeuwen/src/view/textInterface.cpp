@@ -3,6 +3,22 @@
 #include <iostream>
 #include <stdexcept>
 
+InputResult textInterface::getPlayerInput(int& row, int& col) {
+	std::string input;
+	showMessage("Enter your 'u' for undo or enter row:");
+	std::cin >> input;
+	if (input == "u") { return InputResult::Undo; }
+	try {
+		row = std::stoi(input); // zet string terug om naar Int
+	}
+	catch (std::invalid_argument&) { // Ai geholpen met functie vinden die invalid argument exception gooit.
+		return InputResult::Invalid; // als er iets anders is ingevoerd dan een getal of 'u' dan is het ongeldig
+	}
+	showMessage("Enter your column:");
+	std::cin >> col;
+	return InputResult::Move;
+}
+
 
 // Print het bord in het console, Met strepen tussen de cellen.
 void textInterface::render() {
