@@ -15,6 +15,7 @@ public:
 	Player getWinner() const;
 
 private:
+	//stl container gebruiken om de zetten bij te houden
 	std::vector<Move> moves_; // gebruik _ om aan te geven dat het een private member variable is
 
 	bool checkWin(Player p) const;

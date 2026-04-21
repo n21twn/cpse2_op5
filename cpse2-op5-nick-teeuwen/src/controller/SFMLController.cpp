@@ -12,7 +12,7 @@ void SFMLController::handleInput() {
     }
 
 	interface_.render(); // renderen voordat we input vragen zodat spelers kunnen zien wat er op het bord staat voordat ze een zet doen
-
+	// oneindige loop totdat een geldige zet is gemaakt of de speler kiest om terug te gaan
     while (true) {
         InputResult result = interface_.getPlayerInput(row, col);
         if (result == InputResult::Undo) {

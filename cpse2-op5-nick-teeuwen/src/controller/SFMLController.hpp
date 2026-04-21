@@ -10,6 +10,6 @@ class SFMLController : public headController {
 	void handleInput() override;
 
 private:
-	Game& game_; // reference naar game, zodat we gegeven kunen uit lezen
+	Game& game_; 
 	Interface& interface_;
 };

@@ -3,7 +3,9 @@
 #include <iostream>
 #include <stdexcept>
 
+// vraag om de speler zijn input aan de hand van row en col met CIN en check meteen of de input geldig is .
 InputResult textInterface::getPlayerInput(int& row, int& col) {
+
 	std::string input;
 	showMessage("Enter your 'u' for undo or enter row:");
 	std::cin >> input;

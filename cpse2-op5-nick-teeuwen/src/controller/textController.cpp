@@ -4,7 +4,7 @@
 
 
 
-
+// Deze functie handelt de input van de speler af. Het vraagt om de rij en kolom waar de speler een zet wil doen, en verwerkt deze input.
 void textController::handleInput() {
 	int row ;
 	int	col ;
@@ -15,7 +15,7 @@ void textController::handleInput() {
 		interface_.showMessage("Player O's turn.");
 	}
 
-	//EXCEPTION FOR U WHILE AT COL INPUT, 
+	// loop voor het zetten van de move en het catchen van errors.
 	while (true) {
 		InputResult result = interface_.getPlayerInput(row, col);
 		if (result == InputResult::Undo) {

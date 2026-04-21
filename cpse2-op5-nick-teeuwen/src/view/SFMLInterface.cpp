@@ -9,8 +9,9 @@ InputResult SFMLInterface::getPlayerInput(int& row, int& col) {
 			window_.close();
 			return InputResult::Invalid;
 		}
+		// check door middel van de muis positie in welke row and col de speler heeft geklikt.
 		if (event.type == sf::Event::MouseButtonPressed) {
-			row = event.mouseButton.y / 200;
+			row = event.mouseButton.y / 200; // de vakjes zijn 200px groot 
 			col = event.mouseButton.x / 200;
 			if (row >= 0 && row < 3 && col >= 0 && col < 3) {
 				return InputResult::Move;
@@ -31,12 +32,15 @@ void SFMLInterface::render() {
 	window_.clear();
 	for (int r = 0; r < 3; ++r) {
 		for (int c = 0; c < 3; ++c) {
+			// teken het bord
 			sf::RectangleShape cell(sf::Vector2f(200.f, 200.f));
 			cell.setPosition(c * 200.f, r * 200.f);
 			cell.setOutlineThickness(2.f);
 			cell.setOutlineColor(sf::Color::White);
 			cell.setFillColor(sf::Color::Black);
 			window_.draw(cell);
+
+			// check wie er aan de beurt is en teken voor die speler een X of O in het vakje
 			Player p = game_.getCell(r, c);
 			if (p == Player::X) { 
 				drawX(r, c);
@@ -44,14 +48,13 @@ void SFMLInterface::render() {
 			else if (p == Player::O) { 
 				drawO(r, c); 
 			}
-			
 		}
-
 	}
+
 	// Tekst voor berichten onderaan het scherm 
 	sf::Text text(message_, font_, 32);
 	text.setFillColor(sf::Color::White);
-	text.setPosition(10.f, 610.f); // Plaats het bericht in het midden van het venster
+	text.setPosition(10.f, 610.f); // Plaats het bericht onder aan het venster
 	window_.draw(text);
 	window_.display();
 }
@@ -99,6 +102,7 @@ void SFMLInterface::showMessage(std::string message) {
 	// kan niet van uit hier direct getoond worden omdat render() de enige functie is die toegang heeft tot het window_ object.
 }
 
+// functie om te voorkomen dat programma direct sluit aan einde van het spel
 void SFMLInterface::waitForClose() {
 	while (window_.isOpen()) {
 		sf::Event event;
