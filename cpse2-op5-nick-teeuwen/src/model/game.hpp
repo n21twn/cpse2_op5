@@ -8,6 +8,7 @@ public:
 
 	bool makeMove(int row, int col);
 	void undoMove();
+	void restart();
 
 	Player currentPlayer() const;
 	Player getCell(int row, int col) const;

@@ -80,5 +80,17 @@
     <ClInclude Include="src\model\inputResult.hpp">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
+    <ClInclude Include="command.hpp">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="moveCommand.hpp">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="undoCommand.hpp">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="restartCommand.hpp">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

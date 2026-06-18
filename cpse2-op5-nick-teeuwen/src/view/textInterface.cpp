@@ -10,20 +10,24 @@ InputResult textInterface::getPlayerInput(int& row, int& col) {
 	showMessage("Enter your 'u' for undo or enter row:");
 	std::cin >> input;
 	if (input == "u") { return InputResult::Undo; }
+	
 	try {
 		row = std::stoi(input);// zet string terug om naar Int
 	}
 	catch (std::invalid_argument&) {// Ai geholpen met functie vinden die invalid argument exception gooit.
-		return InputResult::Invalid;// als er iets anders is ingevoerd dan een getal of 'u' dan is het ongeldig
+		return InputResult::Invalid;
 	}
-
+	catch (std::out_of_range&) {// als er iets anders is ingevoerd dan een getal of 'u' dan is het ongeldig
+		return InputResult::Invalid;
+	}
+	
 	showMessage("Enter your column:");
 	std::cin >> input;
 	if (input == "u") { return InputResult::Undo; }
 	try {
-		col = std::stoi(input);
+		row = std::stoi(input);
 	}
-	catch (std::invalid_argument&) {
+	catch (...) {
 		return InputResult::Invalid;
 	}
 

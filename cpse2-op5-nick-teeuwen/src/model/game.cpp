@@ -82,3 +82,7 @@ Player Game::getWinner() const {
 	return Player::None; // als er geen winnaar is, return None
 
 }
+
+void Game::restart() {
+	moves_.clear();
+}

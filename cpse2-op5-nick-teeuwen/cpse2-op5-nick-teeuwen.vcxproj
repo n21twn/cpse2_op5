@@ -162,6 +162,9 @@
     <ClCompile Include="src\view\textInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="command.hpp" />
+    <ClInclude Include="moveCommand.hpp" />
+    <ClInclude Include="restartCommand.hpp" />
     <ClInclude Include="src\controller\headController.hpp" />
     <ClInclude Include="src\controller\SFMLController.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Txt|x64'">true</ExcludedFromBuild>
@@ -175,6 +178,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Txt|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="src\view\textInterface.hpp" />
+    <ClInclude Include="undoCommand.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
