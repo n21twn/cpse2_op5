@@ -162,23 +162,24 @@
     <ClCompile Include="src\view\textInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="command.hpp" />
-    <ClInclude Include="moveCommand.hpp" />
-    <ClInclude Include="restartCommand.hpp" />
     <ClInclude Include="src\controller\headController.hpp" />
     <ClInclude Include="src\controller\SFMLController.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Txt|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="src\controller\textController.hpp" />
+    <ClInclude Include="src\model\command.hpp" />
+    <ClInclude Include="src\model\commands.hpp" />
     <ClInclude Include="src\model\game.hpp" />
     <ClInclude Include="src\model\inputResult.hpp" />
     <ClInclude Include="src\model\move.hpp" />
+    <ClInclude Include="src\model\moveCommand.hpp" />
+    <ClInclude Include="src\model\restartCommand.hpp" />
+    <ClInclude Include="src\model\undoCommand.hpp" />
     <ClInclude Include="src\view\Interface.hpp" />
     <ClInclude Include="src\view\SFMLInterface.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Txt|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="src\view\textInterface.hpp" />
-    <ClInclude Include="undoCommand.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

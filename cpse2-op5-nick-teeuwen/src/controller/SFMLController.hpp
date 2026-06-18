@@ -2,7 +2,7 @@
 #include "headController.hpp"
 #include "../model/game.hpp"
 #include "../view/Interface.hpp"
-#include <SFML/Graphics.hpp>
+
 
 class SFMLController : public headController {
 	public:

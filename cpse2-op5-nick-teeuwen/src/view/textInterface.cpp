@@ -7,9 +7,10 @@
 InputResult textInterface::getPlayerInput(int& row, int& col) {
 
 	std::string input;
-	showMessage("Enter your 'u' for undo or enter row:");
+	showMessage("Enter your 'u' for undo, 'r' for restart or enter row number:");
 	std::cin >> input;
 	if (input == "u") { return InputResult::Undo; }
+	if (input == "r") { return InputResult::Restart; }
 	
 	try {
 		row = std::stoi(input);// zet string terug om naar Int
@@ -25,9 +26,12 @@ InputResult textInterface::getPlayerInput(int& row, int& col) {
 	std::cin >> input;
 	if (input == "u") { return InputResult::Undo; }
 	try {
-		row = std::stoi(input);
+		col = std::stoi(input);// zet string terug om naar Int
 	}
-	catch (...) {
+	catch (std::invalid_argument&) {// als er iets anders is ingevoerd dan een getal
+		return InputResult::Invalid;
+	}
+	catch (std::out_of_range&) {// als het getal te groot is om in een int te passen
 		return InputResult::Invalid;
 	}
 

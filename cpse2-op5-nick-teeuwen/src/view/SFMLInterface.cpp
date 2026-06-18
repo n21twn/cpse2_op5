@@ -22,6 +22,9 @@ InputResult SFMLInterface::getPlayerInput(int& row, int& col) {
 			if (event.key.code == sf::Keyboard::U) {
 				return InputResult::Undo;
 			}
+			if (event.key.code == sf::Keyboard::R) {
+				return InputResult::Restart;
+			}
 		}
 	}
 	return InputResult::Invalid;

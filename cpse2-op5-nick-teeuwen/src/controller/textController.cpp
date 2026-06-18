@@ -1,13 +1,12 @@
 
 #include "textController.hpp"
 #include <iostream>
-
-
+#include "../model/commands.hpp"
 
 // Deze functie handelt de input van de speler af. Het vraagt om de rij en kolom waar de speler een zet wil doen, en verwerkt deze input.
 void textController::handleInput() {
-	int row ;
-	int	col ;
+	int row;
+	int	col;
 	if (game_.currentPlayer() == Player::X) {
 		interface_.showMessage("Player X's turn.");
 	}
@@ -18,15 +17,23 @@ void textController::handleInput() {
 	// loop voor het zetten van de move en het catchen van errors.
 	while (true) {
 		InputResult result = interface_.getPlayerInput(row, col);
+
 		if (result == InputResult::Undo) {
-			game_.undoMove();
-			break;// als move gelukt is dan return, anders loop verder en vraag opnieuw om input
+			game_.undo();
+			break;
 		}
-		if(result == InputResult::Invalid) {
+		if (result == InputResult::Restart) {
+			game_.restart();
+			break;
+		}
+		if (result == InputResult::Invalid) {
 			interface_.showMessage("Invalid input, only numbers are allowed and 'u'.");
-			continue; // loop opnieuw starten
+			continue; // loop opnieuw starten, geen command nodig bij ongeldige input
 		}
-		if(game_.makeMove(row, col)) { break; }// als move gelukt is dan return, anders loop verder en vraag opnieuw om input
+
+		// result == InputResult::Move
+		auto command = std::make_unique<MoveCommand>(row, col, game_.currentPlayer());
+		if (game_.executeCommand(std::move(command))) { break; } // command uitvoeren; bij succes loop verlaten
 		interface_.showMessage("Invalid move, try again.");
 	}
 
