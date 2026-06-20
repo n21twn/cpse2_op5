@@ -4,5 +4,4 @@
 // includes per command-type.
 #include "command.hpp"
 #include "moveCommand.hpp"
-#include "undoCommand.hpp"
 #include "restartCommand.hpp"

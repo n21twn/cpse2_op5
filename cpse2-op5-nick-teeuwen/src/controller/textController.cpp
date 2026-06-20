@@ -1,7 +1,7 @@
 
 #include "textController.hpp"
 #include <iostream>
-#include "../model/commands.hpp"
+#include "../model/moveCommand.hpp"
 
 // Deze functie handelt de input van de speler af. Het vraagt om de rij en kolom waar de speler een zet wil doen, en verwerkt deze input.
 void textController::handleInput() {
@@ -32,7 +32,7 @@ void textController::handleInput() {
 		}
 
 		// result == InputResult::Move
-		auto command = std::make_unique<MoveCommand>(row, col, game_.currentPlayer());
+		auto command = std::make_unique<MoveCommand>(game_, row, col);
 		if (game_.executeCommand(std::move(command))) { break; } // command uitvoeren; bij succes loop verlaten
 		interface_.showMessage("Invalid move, try again.");
 	}

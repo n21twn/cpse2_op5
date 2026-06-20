@@ -174,7 +174,6 @@
     <ClInclude Include="src\model\move.hpp" />
     <ClInclude Include="src\model\moveCommand.hpp" />
     <ClInclude Include="src\model\restartCommand.hpp" />
-    <ClInclude Include="src\model\undoCommand.hpp" />
     <ClInclude Include="src\view\Interface.hpp" />
     <ClInclude Include="src\view\SFMLInterface.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Txt|x64'">true</ExcludedFromBuild>

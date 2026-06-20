@@ -1,15 +1,14 @@
 #pragma once 
 #include <vector>
-#include <memory>          // ← voor unique_ptr
+#include <memory>
 #include "move.hpp"
-#include "moveCommand.hpp"
-
+#include "command.hpp"
 
 class Game {
 public:
     Game();
 
-    bool executeCommand(std::unique_ptr<MoveCommand> command);
+    bool executeCommand(std::unique_ptr<Command> command);
     void undo();
     void restart();
 
@@ -19,7 +18,8 @@ public:
     Player getWinner() const;
 
 private:
-    std::vector<std::unique_ptr<MoveCommand>> commands_;
+    //stl container gebruiken om de geschiedenis van uitgevoerde commands bij te houden
+    std::vector<std::unique_ptr<Command>> history_;
 
     bool checkWin(Player p) const;
 };

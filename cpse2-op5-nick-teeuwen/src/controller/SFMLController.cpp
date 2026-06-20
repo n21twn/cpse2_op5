@@ -1,6 +1,7 @@
 #include <iostream>
+#include <memory>
 #include "SFMLController.hpp"
-#include "../model/commands.hpp"
+#include "../model/moveCommand.hpp"
 
 void SFMLController::handleInput() {
     int row, col;
@@ -29,9 +30,10 @@ void SFMLController::handleInput() {
             continue;
         }
 
-        // result == InputResult::Move
-        auto command = std::make_unique<MoveCommand>(row, col, game_.currentPlayer());
-        if (game_.executeCommand(std::move(command))) { break; } // command uitvoeren; bij succes loop verlaten
+        // result == InputResult::Move -- controller maakt het command aan (client-rol)
+        // en roept execute() aan via Game::executeCommand() (invoker-rol)
+        auto command = std::make_unique<MoveCommand>(game_, row, col);
+        if (game_.executeCommand(std::move(command))) { break; } // bij succes loop verlaten
 
         interface_.showMessage("Square occupied, try again.");
         interface_.render();
